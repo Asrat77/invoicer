@@ -11,6 +11,9 @@ dependencies:
   '@nestjs/core':
     specifier: ^10.0.0
     version: 10.4.13(@nestjs/common@10.4.13)(@nestjs/platform-express@10.4.13)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+  '@nestjs/mapped-types':
+    specifier: '*'
+    version: 2.0.6(@nestjs/common@10.4.13)(reflect-metadata@0.2.2)
   '@nestjs/platform-express':
     specifier: ^10.0.0
     version: 10.4.13(@nestjs/common@10.4.13)(@nestjs/core@10.4.13)
@@ -917,6 +920,23 @@ packages:
       uid: 2.0.2
     transitivePeerDependencies:
       - encoding
+
+  /@nestjs/mapped-types@2.0.6(@nestjs/common@10.4.13)(reflect-metadata@0.2.2):
+    resolution: {integrity: sha512-84ze+CPfp1OWdpRi1/lOu59hOhTz38eVzJvRKrg9ykRFwDz+XleKfMsG0gUqNZYFa6v53XYzeD+xItt8uDW7NQ==}
+    peerDependencies:
+      '@nestjs/common': ^8.0.0 || ^9.0.0 || ^10.0.0
+      class-transformer: ^0.4.0 || ^0.5.0
+      class-validator: ^0.13.0 || ^0.14.0
+      reflect-metadata: ^0.1.12 || ^0.2.0
+    peerDependenciesMeta:
+      class-transformer:
+        optional: true
+      class-validator:
+        optional: true
+    dependencies:
+      '@nestjs/common': 10.4.13(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      reflect-metadata: 0.2.2
+    dev: false
 
   /@nestjs/platform-express@10.4.13(@nestjs/common@10.4.13)(@nestjs/core@10.4.13):
     resolution: {integrity: sha512-9Uar9t5NZebI9Y8P8B6OYTfj6p5DuUHM/nk2zGwbL3SLdnieP4O2K1DuePo3SWiYBStmPoTAlXyl6L2zDtrLjQ==}

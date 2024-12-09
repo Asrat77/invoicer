@@ -1,17 +1,16 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class CreateCustomers1733726809525 implements MigrationInterface {
+export class CreateItems1733731282259 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(`
-      CREATE TABLE customer (
+      CREATE TABLE item (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        first_name VARCHAR(255) NOT NULL,
-        last_name VARCHAR(255) NOT NULL
+        name VARCHAR(255) NOT NULL,
       )
     `);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.query(`DROP TABLE customer`);
+    await queryRunner.query(`DROP TABLE item`);
   }
 }
