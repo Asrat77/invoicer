@@ -8,12 +8,14 @@ import { DataSource } from 'typeorm';
 import { CustomersModule } from './customers/customers.module';
 import { AppDataSource } from './data-source';
 import { ItemsModule } from './items/items.module';
+import { InvoicesModule } from './invoices/invoices.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(AppDataSource.options),
     CustomersModule,
     ItemsModule,
+    InvoicesModule,
   ],
   controllers: [AppController, CatsController],
   providers: [AppService, CatsService],
