@@ -12,7 +12,9 @@ export class InvoicesService {
   ) {}
 
   findAll(): Promise<Invoice[]> {
-    return this.invoiceRepository.find();
+    return this.invoiceRepository.find({
+      relations: ['customer'],
+    });
   }
 
   find(id: number): Promise<Invoice | null> {

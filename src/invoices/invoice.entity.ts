@@ -15,6 +15,9 @@ export class Invoice {
   @Column()
   total_price: number;
 
+  @Column()
+  customerId: number;
+
   @ManyToOne(() => Customer, (customer) => customer.invoices)
   customer: Customer;
 }

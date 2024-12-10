@@ -19,6 +19,5 @@ export class InvoicesController {
   @Post()
   async create(@Body() createInvoiceDto: CreateInvoiceDto) {
     this.invoiceService.create(createInvoiceDto);
-    console.log(createInvoiceDto.customerId);
   }
 }
