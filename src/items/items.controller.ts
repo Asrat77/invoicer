@@ -1,6 +1,7 @@
 import { Get, Post, Body, Controller, Param } from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { Item } from './item.entity';
+import { CreateItemDto } from 'src/dto/create-item.dto';
 @Controller('items')
 export class ItemsController {
   constructor(private itemService: ItemsService) {}
@@ -14,7 +15,7 @@ export class ItemsController {
     return this.itemService.find(id);
   }
   @Post()
-  async create(@Body() item: Item) {
-    this.itemService.create(item);
+  async create(@Body() createItemDto: CreateItemDto) {
+    this.itemService.create(createItemDto);
   }
 }

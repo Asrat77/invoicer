@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Item } from './item.entity';
+import { CreateItemDto } from 'src/dto/create-item.dto';
 
 @Injectable()
 export class ItemsService {
@@ -18,8 +19,8 @@ export class ItemsService {
     return this.itemsRepository.findOneBy({ id });
   }
 
-  create(item: Item): Promise<Item> {
-    return this.itemsRepository.save(item);
+  create(createItemDto: CreateItemDto): Promise<CreateItemDto> {
+    return this.itemsRepository.save(createItemDto);
   }
   async remove(id: number): Promise<void> {
     await this.itemsRepository.delete(id);
