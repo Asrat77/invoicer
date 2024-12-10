@@ -2,6 +2,7 @@ import { Get, Post, Body, Controller, Param } from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { Item } from './item.entity';
 import { CreateItemDto } from 'src/dto/create-item.dto';
+import { FindOneParams } from 'src/dto/findone-params.dto';
 @Controller('items')
 export class ItemsController {
   constructor(private itemService: ItemsService) {}
@@ -11,8 +12,8 @@ export class ItemsController {
     return this.itemService.findAll();
   }
   @Get(':id')
-  async find(@Param('id') id: number) {
-    return this.itemService.find(id);
+  async find(@Param() params: FindOneParams) {
+    return this.itemService.find(params.id);
   }
   @Post()
   async create(@Body() createItemDto: CreateItemDto) {
