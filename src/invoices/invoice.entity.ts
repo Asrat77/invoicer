@@ -9,8 +9,8 @@ export class Invoice {
   @Column()
   status: string;
 
-  @Column({ type: 'date', default: () => 'CURRENT_DATE' })
-  generated_on: string;
+  @Column({ default: () => 'CURRENT_TIMESTAMP' })
+  generated_on: Date;
 
   @Column()
   total_price: number;

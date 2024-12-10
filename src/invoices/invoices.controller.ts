@@ -1,6 +1,7 @@
 import { Controller, Get, Body, Post, Param } from '@nestjs/common';
 import { InvoicesService } from './invoices.service';
 import { Invoice } from './invoice.entity';
+import { CreateInvoiceDto } from 'src/dto/create-invoice.dto';
 
 @Controller('invoices')
 export class InvoicesController {
@@ -16,7 +17,8 @@ export class InvoicesController {
   }
 
   @Post()
-  async create(@Body() invoice: Invoice) {
-    this.invoiceService.create(invoice);
+  async create(@Body() createInvoiceDto: CreateInvoiceDto) {
+    this.invoiceService.create(createInvoiceDto);
+    console.log(createInvoiceDto.customerId);
   }
 }
