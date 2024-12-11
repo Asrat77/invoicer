@@ -9,6 +9,7 @@ import { CustomersModule } from './customers/customers.module';
 import { AppDataSource } from './data-source';
 import { ItemsModule } from './items/items.module';
 import { InvoicesModule } from './invoices/invoices.module';
+import { InvoiceItemsModule } from './invoice-items/invoice-items.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { InvoicesModule } from './invoices/invoices.module';
     CustomersModule,
     ItemsModule,
     InvoicesModule,
+    InvoiceItemsModule,
   ],
   controllers: [AppController, CatsController],
   providers: [AppService, CatsService],

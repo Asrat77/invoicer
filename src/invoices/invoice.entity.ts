@@ -1,6 +1,12 @@
 import { Customer } from '../customers/customer.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
+import { InvoiceItem } from '../invoice-items/invoice-items.entity';
 @Entity()
 export class Invoice {
   @PrimaryGeneratedColumn()
@@ -20,4 +26,7 @@ export class Invoice {
 
   @ManyToOne(() => Customer, (customer) => customer.invoices)
   customer: Customer;
+
+  @OneToMany(() => InvoiceItem, (invoiceItem) => invoiceItem.invoice)
+  invoiceItems: InvoiceItem[];
 }
