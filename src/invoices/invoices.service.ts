@@ -13,4 +13,10 @@ export class InvoicesService extends BaseService<Invoice, CreateInvoiceDto> {
   ) {
     super(invoiceRepository, ['customer']);
   }
+  getByCustomer(customerId: number) {
+    return this.invoiceRepository
+      .createQueryBuilder('invoice')
+      .where('invoice.customerId = :customerId', { customerId })
+      .getMany();
+  }
 }

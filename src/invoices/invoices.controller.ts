@@ -20,4 +20,10 @@ export class InvoicesController {
   async create(@Body() createInvoiceDto: CreateInvoiceDto) {
     this.invoiceService.create(createInvoiceDto);
   }
+  @Get('by-customer/:customerId')
+  async getByCustomer(
+    @Param('customerId') customerId: number,
+  ): Promise<Invoice[]> {
+    return this.invoiceService.getByCustomer(customerId);
+  }
 }
