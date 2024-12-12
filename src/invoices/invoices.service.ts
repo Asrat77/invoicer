@@ -3,30 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Invoice } from './invoice.entity';
 import { Repository } from 'typeorm';
 import { CreateInvoiceDto } from 'src/dto/create-invoice.dto';
+import { BaseService } from 'src/common/base.service';
 
 @Injectable()
-export class InvoicesService {
+export class InvoicesService extends BaseService<Invoice, CreateInvoiceDto> {
   constructor(
     @InjectRepository(Invoice)
     private invoiceRepository: Repository<Invoice>,
-  ) {}
-
-  findAll(): Promise<Invoice[]> {
-    return this.invoiceRepository.find({
-      relations: ['customer'],
-    });
-  }
-
-  find(id: number): Promise<Invoice | null> {
-    return this.invoiceRepository.findOne({
-      where: { id },
-      relations: ['customer'],
-    });
-  }
-  create(createInvoiceDto: CreateInvoiceDto): Promise<CreateInvoiceDto> {
-    return this.invoiceRepository.save(createInvoiceDto);
-  }
-  async remove(id: number): Promise<void> {
-    await this.invoiceRepository.delete(id);
+  ) {
+    super(invoiceRepository, ['customer']);
   }
 }
