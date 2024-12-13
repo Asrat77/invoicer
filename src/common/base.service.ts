@@ -7,12 +7,12 @@ export class BaseService<T, D> {
     private readonly relations?: string[],
   ) {}
 
-  findAll(): Promise<T[]> {
-    return this.repository.find({ relations: this.relations });
+  async findAll(): Promise<T[]> {
+    return await this.repository.find({ relations: this.relations });
   }
 
-  find(id: number): Promise<T | null> {
-    return this.repository.findOne({
+  async find(id: number): Promise<T | null> {
+    return await this.repository.findOne({
       where: { id } as any,
       relations: this.relations,
     });
