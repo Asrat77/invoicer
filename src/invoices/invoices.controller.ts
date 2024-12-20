@@ -2,16 +2,11 @@ import { Controller, Get, Body, Post, Param } from '@nestjs/common';
 import { InvoicesService } from './invoices.service';
 import { Invoice } from './invoice.entity';
 import { CreateInvoiceDto } from 'src/dto/create-invoice.dto';
-import { CreateCustomerDto } from 'src/dto/create-customer.dto';
-import { CustomersService } from 'src/customers/customers.service';
 import { CustomerAndInvoiceDto } from 'src/dto/customer-and-invoice.dto';
 
 @Controller('invoices')
 export class InvoicesController {
-  constructor(
-    private invoiceService: InvoicesService,
-    private customerService: CustomersService,
-  ) {}
+  constructor(private invoiceService: InvoicesService) {}
   @Get()
   async findAll(): Promise<Invoice[]> {
     return this.invoiceService.findAll();
